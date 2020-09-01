@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aclonica</item>
+        <item>@font/bangers</item>
+        <item>@font/candal</item>
+        <item>@font/cinzel_decorative</item>
+        <item>@font/cinzel_decorative_black</item>
+        <item>@font/finger_paint</item>
+    </array>
+</resources>
