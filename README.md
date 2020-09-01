@@ -36,6 +36,6 @@ All you need is here
 <img src = "8.png" width="360" height="720" />
 
 9. Crazy Line ( Randomly Generate Some Pick Up Lines )
-<img src = "7.png" width="360" height="720" />
+<img src = "9.png" width="360" height="720" />
 
 Follow me for more project. Thank you
