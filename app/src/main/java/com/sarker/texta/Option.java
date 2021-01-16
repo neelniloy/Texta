@@ -13,7 +13,7 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
 
     private long backPressedTime;
     private Toast backtoast;
-    private CardView textRepeater,text2emoji,ascii,blank,random_sentence,emoji2text,emojiart;
+    private CardView textRepeater,text2emoji,ascii,blank,random_sentence,emoji2text,emojiart,font;
     private CircleImageView about;
 
     @Override
@@ -28,6 +28,7 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
         random_sentence = findViewById(R.id.cv_random_sentence);
         emoji2text = findViewById(R.id.cv_emoji2text);
         emojiart = findViewById(R.id.cv_emojiart);
+        font = findViewById(R.id.cv_font);
 
         textRepeater.setOnClickListener(this);
         text2emoji.setOnClickListener(this);
@@ -46,6 +47,16 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
             }
 
         });
+
+        font.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Option.this,FontStyle.class);
+                startActivity(intent);
+            }
+
+        });
+
     }
     @Override
     public void onClick(View v) {

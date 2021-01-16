@@ -18,11 +18,6 @@
         android:layout_gravity="center"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/about"
@@ -42,17 +37,6 @@
                 android:textStyle="bold"
                 android:gravity="center_horizontal" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:gravity="end">
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 
 <ScrollView
@@ -114,6 +98,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Blank Text"
+                    android:textColor="#FFF"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:gravity="center_horizontal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="35dp"
+            android:id="@+id/cv_font"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            app:cardBackgroundColor="#424242"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            app:cardCornerRadius="10dp"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Stylish Text"
                     android:textColor="#FFF"
                     android:textAlignment="center"
                     android:textSize="20sp"
