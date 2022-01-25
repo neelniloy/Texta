@@ -48,7 +48,7 @@
         android:layout_marginBottom="150dp"
         android:fontFamily="cursive"
         android:gravity="center_horizontal"
-        android:text="All You Need Is Here"
+        android:text="Fun With Text &amp; Emoji"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"

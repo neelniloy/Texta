@@ -8,13 +8,13 @@
     android:background="#212121">
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btngen"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginTop="55dp"
         android:background="@drawable/bg_blood_shape"
-        android:text="generate"
-        android:textStyle="italic"
+        android:text="Generate"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

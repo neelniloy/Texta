@@ -119,13 +119,9 @@ public class Dashboard extends AppCompatActivity {
                 Intent share = new Intent(Intent.ACTION_SEND);
 
                 share.setType("text/plain");
-
                 share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-
-                share.putExtra(Intent.EXTRA_SUBJECT, "Utsha coming at you at supersonic speed <3");
-
+                share.putExtra(Intent.EXTRA_SUBJECT, "Thanks For Sharing <3");
                 share.putExtra(Intent.EXTRA_TEXT, "" + outputdisplay.getText().toString());
-
                 startActivity(Intent.createChooser(share, "Share With Friends"));
             }
         });

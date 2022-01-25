@@ -64,7 +64,6 @@
             android:layout_height="wrap_content"
             android:hint="Enter Text"
             android:textColorHint="#FFF"
-            android:textStyle="italic"
             android:gravity="start|top"
             android:textColor="#FFF"
             android:background="@color/Transparent"
@@ -98,7 +97,6 @@
         android:textColorHint="#FFF"
         android:inputType="number"
         android:textSize="15sp"
-        android:textStyle="italic"
         android:gravity="start|top"
         android:textColor="#FFF"
         android:background="@color/Transparent"
@@ -134,6 +132,7 @@
     </LinearLayout>
 
     <Button
+        android:textAllCaps="false"
         android:layout_marginTop="25dp"
         android:id="@+id/generatebtn"
         android:layout_width="100dp"
@@ -154,22 +153,24 @@
         android:layout_marginBottom="2dp">
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/Cpybtn"
             android:layout_marginRight="5dp"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textColor="#ffffff"
             android:background="@drawable/round_shape"
-            android:text="copy"/>
+            android:text="Copy"/>
 
         <Button
+            android:textAllCaps="false"
             android:id="@+id/sharebtn"
             android:textColor="#ffffff"
             android:layout_marginLeft="5dp"
             android:background="@drawable/round_shape"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="SHARE" />
+            android:text="Share" />
 
     </LinearLayout>
 

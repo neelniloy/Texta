@@ -9,10 +9,10 @@
         android:roundIcon="@drawable/notepad_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FontStyle"></activity>
-        <activity android:name=".CrazyText" />
+        <activity android:name=".Binary2Text" />
+        <activity android:name=".Text2Binary" />
+        <activity android:name=".FontStyle" />
         <activity android:name=".EmojiArt" />
-        <activity android:name=".Example" />
         <activity android:name=".RandomSentence" />
         <activity android:name=".TextTranslator" />
         <activity android:name=".AsciiV2" />
@@ -21,7 +21,9 @@
         <activity android:name=".Option" />
         <activity android:name=".About" />
         <activity android:name=".Dashboard" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

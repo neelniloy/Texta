@@ -53,7 +53,7 @@ public class About extends AppCompatActivity {
         Linkdin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://www.linkedin.com/in/niloy-sarker-53858b176/";
+                String url = "https://www.linkedin.com/in/niloysarker/";
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
@@ -67,7 +67,7 @@ public class About extends AppCompatActivity {
         Youtube.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://www.youtube.com/c/NILOYTHEM4K3R";
+                String url = "https://www.youtube.com/channel/UCwt6QqoIq3CpaI-5dVtQLzg";
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);

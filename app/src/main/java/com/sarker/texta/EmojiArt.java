@@ -48,7 +48,6 @@ import java.util.Random;
 
 public class EmojiArt extends AppCompatActivity {
 
-    private static final int ANTI_ALIAS_FLAG =537 ;
     private EditText etemoji,ettext;
     private Button btnsubmit;
     private TextView tvout;
@@ -59,7 +58,6 @@ public class EmojiArt extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_emoji_art);
 
         copy = findViewById(R.id.copy3);
@@ -815,25 +813,6 @@ public class EmojiArt extends AppCompatActivity {
             }
             in++;
         }
-    }
-
-    public static Bitmap textAsBitmap(String text) {
-        // adapted from https://stackoverflow.com/a/8799344/1476989
-        Paint paint = new Paint(ANTI_ALIAS_FLAG);
-        paint.setTextSize(50);
-        paint.setColor(Color.BLACK);
-        paint.setTextAlign(Paint.Align.LEFT);
-        float baseline = -paint.ascent(); // ascent() is negative
-        int width = (int) (paint.measureText(text) + 0.0f); // round
-        int height = (int) (baseline + paint.descent() + 0.0f);
-
-        int trueWidth = width;
-        if(width>height)height=width; else width=height;
-        Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-
-        Canvas canvas = new Canvas(image);
-        canvas.drawText(text, width/2-trueWidth/2, baseline, paint);
-        return image;
     }
 
 }

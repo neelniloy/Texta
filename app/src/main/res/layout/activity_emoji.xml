@@ -80,7 +80,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_blood_shape"
             android:gravity="center_horizontal"
-            android:textStyle="italic"
             android:hint="Insert Emoji"
             android:padding="10dp"
             android:textColor="#FFF"
@@ -95,12 +94,12 @@
             android:orientation="vertical">
 
             <Button
+                android:textAllCaps="false"
                 android:id="@+id/button"
                 android:layout_width="100dp"
                 android:layout_height="35dp"
                 android:background="@drawable/bg_blood_shape"
                 android:text="Translate"
-                android:textStyle="italic"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

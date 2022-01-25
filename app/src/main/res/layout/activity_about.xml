@@ -37,25 +37,23 @@
                 android:text="TEXTA"
                 android:textAlignment="center"
                 android:textSize="35sp"
-                android:textStyle="italic|bold"
+                android:textStyle="bold"
                 android:gravity="center_horizontal" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#FFF"
-                android:text="All You Need Is Here"
+                android:text="Fun With Text &amp; Emoji"
                 android:textAlignment="center"
                 android:textSize="16sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#FFF"
-                android:text="Version 3.0"
+                android:text="Version 1.230122"
                 android:textAlignment="center"
                 android:textSize="15sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
 
         </LinearLayout>
@@ -76,7 +74,6 @@
                 android:text="Developed By"
                 android:textAlignment="center"
                 android:textSize="25sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
             <TextView
                 android:layout_marginTop="20dp"
@@ -86,7 +83,6 @@
                 android:text="Niloy Kumar Sarker"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
             <TextView
                 android:layout_marginTop="5dp"
@@ -96,7 +92,6 @@
                 android:text="CSE"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
             <TextView
                 android:layout_marginTop="5dp"
@@ -106,7 +101,6 @@
                 android:text="Batch 52"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
             <TextView
                 android:layout_marginTop="5dp"
@@ -116,7 +110,6 @@
                 android:text="Daffodil International University"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
 
 
@@ -139,7 +132,6 @@
                 android:text="Connect With Me"
                 android:textAlignment="center"
                 android:textSize="25sp"
-                android:textStyle="italic"
                 android:gravity="center_horizontal" />
             <LinearLayout
                 android:layout_marginTop="15dp"

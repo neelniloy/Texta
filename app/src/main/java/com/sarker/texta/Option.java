@@ -1,19 +1,35 @@
 package com.sarker.texta;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Scanner;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Option extends AppCompatActivity implements View.OnClickListener {
 
     private long backPressedTime;
     private Toast backtoast;
-    private CardView textRepeater,text2emoji,ascii,blank,random_sentence,emoji2text,emojiart,font;
+    private CardView textRepeater,text2emoji,ascii,blank,random_sentence,emoji2text,emojiart,font,t2b,b2t;
     private CircleImageView about;
 
     @Override
@@ -29,6 +45,8 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
         emoji2text = findViewById(R.id.cv_emoji2text);
         emojiart = findViewById(R.id.cv_emojiart);
         font = findViewById(R.id.cv_font);
+        t2b = findViewById(R.id.cv_t2b);
+        b2t = findViewById(R.id.cv_b2t);
 
         textRepeater.setOnClickListener(this);
         text2emoji.setOnClickListener(this);
@@ -56,6 +74,32 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
             }
 
         });
+
+
+        t2b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Option.this,Text2Binary.class);
+                startActivity(intent);
+
+            }
+
+        });
+
+        b2t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Option.this,Binary2Text.class);
+                startActivity(intent);
+
+            }
+
+        });
+
+
+
 
     }
     @Override

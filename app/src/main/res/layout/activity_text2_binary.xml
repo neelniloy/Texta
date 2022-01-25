@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    tools:context=".Text2Binary">
+
+    <LinearLayout
+        android:padding="15dp"
+        android:id="@+id/labelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/about"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/about_icon"/>
+        <TextView
+
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text to Binary Converter"
+            android:textAlignment="center"
+            android:textColor="#157DE6"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:id="@+id/textLayout"
+        android:layout_below="@+id/labelText"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/bg_blood_shape">
+
+        <EditText
+
+            android:id="@+id/inputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Text"
+            android:textColorHint="#FFF"
+            android:gravity="start|top"
+            android:textColor="#FFF"
+            android:background="@color/Transparent"
+            android:lines="3" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_below="@+id/textLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:textAllCaps="false"
+            android:layout_marginTop="25dp"
+            android:id="@+id/btnConvert"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:text="Convert"
+            android:textColor="#ffffff"
+            android:background="@drawable/round_shape"
+            />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:id="@+id/btnContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="2dp">
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/Cpybtn"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/round_shape"
+                android:text="Copy"/>
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/sharebtn"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/round_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Share" />
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_margin="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textIsSelectable="false"
+                    android:id="@+id/Outputdisply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#FFF" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

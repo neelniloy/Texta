@@ -115,7 +115,6 @@
                 android:layout_height="wrap_content"
                 android:text="Hello World"
                 android:hint="Enter Text"
-                android:textStyle="italic"
                 android:textColor="#FFF"
                 android:textColorHint="#FFF"
                 android:textSize="16sp"

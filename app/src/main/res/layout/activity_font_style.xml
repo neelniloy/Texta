@@ -53,7 +53,6 @@
             android:layout_height="wrap_content"
             android:hint="Enter Text"
             android:textColorHint="#FFF"
-            android:textStyle="italic"
             android:gravity="start|top"
             android:textColor="#FFF"
             android:background="@color/Transparent"
