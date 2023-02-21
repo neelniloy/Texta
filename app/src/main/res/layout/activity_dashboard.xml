@@ -1,200 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".Dashboard"
     android:padding="35dp"
-    android:background="#212121"
- >
+    android:background="#212121">
 
-    <LinearLayout
+    <com.google.android.gms.ads.AdView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        ads:adSize="FULL_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"/>
+
+    <LinearLayout
+        android:layout_above="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/about"
-                android:layout_width="25dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/about_icon"/>
-            <TextView
-                android:id="@+id/labelText"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/about"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/about_icon"/>
+                <TextView
+                    android:id="@+id/labelText"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Text Repeater"
+                    android:textAlignment="center"
+                    android:textColor="#157DE6"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end">
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/bg_blood_shape">
+
+            <EditText
+
+                android:id="@+id/inputext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Text"
+                android:textColorHint="#FFF"
+                android:gravity="start|top"
+                android:textColor="#FFF"
+                android:background="@color/Transparent"
+                android:lines="3" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+
+                android:orientation="horizontal"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:background="@drawable/bg_blood_shape">
+
+                <EditText
+
+                    android:id="@+id/inputlimit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Limit"
+                    android:textColorHint="#FFF"
+                    android:inputType="number"
+                    android:textSize="15sp"
+                    android:gravity="start|top"
+                    android:textColor="#FFF"
+                    android:background="@color/Transparent"
+                    android:lines="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Text Repeater"
-                android:textAlignment="center"
-                android:textColor="#157DE6"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:gravity="center_horizontal" />
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <CheckBox
+                    android:id="@+id/newLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Line"
+                    android:textColor="#FFF"
+                    android:layout_margin="2dp"
+                    android:theme="@style/MyCheckBox"/>
+                <CheckBox
+                    android:id="@+id/addIndex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Index"
+                    android:textColor="#FFF"
+                    android:layout_margin="2dp"
+                    android:theme="@style/MyCheckBox"/>
+
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:gravity="end">
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/bg_blood_shape">
-
-        <EditText
-
-            android:id="@+id/inputext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Text"
-            android:textColorHint="#FFF"
-            android:gravity="start|top"
-            android:textColor="#FFF"
-            android:background="@color/Transparent"
-            android:lines="3" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
->
-
-    <LinearLayout
-
-        android:orientation="horizontal"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:padding="7dp"
-        android:background="@drawable/bg_blood_shape">
-
-    <EditText
-
-        android:id="@+id/inputlimit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Limit"
-        android:textColorHint="#FFF"
-        android:inputType="number"
-        android:textSize="15sp"
-        android:gravity="start|top"
-        android:textColor="#FFF"
-        android:background="@color/Transparent"
-        android:lines="1" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginLeft="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <CheckBox
-            android:id="@+id/newLine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Line"
-            android:textColor="#FFF"
-            android:layout_margin="2dp"
-            android:theme="@style/MyCheckBox"/>
-        <CheckBox
-            android:id="@+id/addIndex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Index"
-            android:textColor="#FFF"
-            android:layout_margin="2dp"
-            android:theme="@style/MyCheckBox"/>
-
-    </LinearLayout>
-    </LinearLayout>
-
-    <Button
-        android:textAllCaps="false"
-        android:layout_marginTop="25dp"
-        android:id="@+id/generatebtn"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center"
-        android:text="Generate"
-        android:textColor="#ffffff"
-        android:background="@drawable/round_shape"
-        />
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:id="@+id/btnContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="2dp">
 
         <Button
             android:textAllCaps="false"
-            android:id="@+id/Cpybtn"
-            android:layout_marginRight="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_marginTop="25dp"
+            android:id="@+id/generatebtn"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:text="Generate"
             android:textColor="#ffffff"
             android:background="@drawable/round_shape"
-            android:text="Copy"/>
+            />
 
-        <Button
-            android:textAllCaps="false"
-            android:id="@+id/sharebtn"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/round_shape"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="Share" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/btnContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="2dp">
 
-            <TextView
-                android:textIsSelectable="false"
-                android:id="@+id/Outputdisply"
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/Cpybtn"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/round_shape"
+                android:text="Copy"/>
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/sharebtn"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/round_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Share" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginTop="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFF" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:textIsSelectable="false"
+                    android:id="@+id/Outputdisply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF" />
 
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </ScrollView>
+        </ScrollView>
 
-</LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

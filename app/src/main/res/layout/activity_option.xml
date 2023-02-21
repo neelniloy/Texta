@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="vertical"
     android:background="#212121"
-    tools:context=".Option"
-  >
+    tools:context=".Option">
+
+    <com.google.android.gms.ads.AdView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="FULL_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"/>
+
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:id="@+id/about_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -38,306 +48,309 @@
         </LinearLayout>
 
 
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="none">
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_above="@+id/adView"
+        android:layout_below="@+id/about_layout"
+        android:layout_marginTop="5dp"
+        android:scrollbars="none">
 
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:id="@+id/cv_text_repeater"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <TextView
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_text_repeater"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="Text Repeater"
-                    android:textAlignment="center"
-                    android:textColor="#FFF"
-                    android:textSize="20sp" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Text Repeater"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_blank"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_blank"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Blank Text"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Blank Text"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_font"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_font"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Stylish Text"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Stylish Text"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_text2emoji"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_text2emoji"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Text to Emoji"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Text to Emoji"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_emoji2text"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_emoji2text"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Emoji Translator"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Emoji Translator"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_ascii"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_ascii"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="ASCII Emoji"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="ASCII Emoji"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_emojiart"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_emojiart"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Emoji Art"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Emoji Art"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_random_sentence"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_random_sentence"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Crazy Lines"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Crazy Lines"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:id="@+id/cv_t2b"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_t2b"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Text to Binary"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Text to Binary"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="35dp"
-            android:layout_marginBottom="20dp"
-            android:id="@+id/cv_b2t"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            app:cardBackgroundColor="#424242"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            app:cardCornerRadius="10dp"
-            tools:ignore="MissingConstraints">
+            </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_b2t"
+                android:layout_width="250dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="#424242"
+                app:cardCornerRadius="10dp"
+                tools:ignore="MissingConstraints">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Binary to Text"
-                    android:textColor="#FFF"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    android:gravity="center_horizontal" />
+                    android:layout_height="match_parent">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:text="Binary to Text"
+                        android:textAlignment="center"
+                        android:textColor="#FFF"
+                        android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-    </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-</androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 
 
 
-</LinearLayout>
+</RelativeLayout>

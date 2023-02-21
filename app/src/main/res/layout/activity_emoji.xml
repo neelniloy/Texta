@@ -1,90 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="#212121"
     android:padding="30dp"
     android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".Emoji">
 
-    <LinearLayout
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="FULL_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+
+    <LinearLayout
+        android:layout_above="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/about"
-                android:layout_width="25dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/about_icon"/>
-            <TextView
-                android:id="@+id/labelText"
-                android:layout_marginLeft="5dp"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Emoji Meaning"
-                android:textAlignment="center"
-                android:textColor="#157DE6"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:gravity="center_horizontal" />
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/about"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/about_icon"/>
+                <TextView
+                    android:id="@+id/labelText"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emoji Meaning"
+                    android:textAlignment="center"
+                    android:textColor="#157DE6"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-        <LinearLayout
+        <ScrollView
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:textIsSelectable="false"
-                android:id="@+id/resultText"
-               android:textAlignment="center"
+            android:layout_height="200dp">
+            <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:textSize="16sp"
-                android:textColor="#FFF"
-                android:gravity="center_horizontal" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:textIsSelectable="false"
+                    android:id="@+id/resultText"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textSize="16sp"
+                    android:textColor="#FFF"
+                    android:gravity="center_horizontal" />
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_blood_shape"
-            android:gravity="center_horizontal"
-            android:hint="Insert Emoji"
-            android:padding="10dp"
-            android:textColor="#FFF"
-            android:textAlignment="center"
-            android:textColorHint="#FFF"/>
+        </ScrollView>
 
         <LinearLayout
             android:layout_marginTop="50dp"
@@ -93,17 +90,42 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
-            <Button
-                android:textAllCaps="false"
-                android:id="@+id/button"
-                android:layout_width="100dp"
-                android:layout_height="35dp"
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/bg_blood_shape"
-                android:text="Translate"
-                android:textColor="#FFFFFF" />
+                android:gravity="center_horizontal"
+                android:hint="Insert Emoji"
+                android:padding="10dp"
+                android:textColor="#FFF"
+                android:textAlignment="center"
+                android:textColorHint="#FFF"/>
+
+            <LinearLayout
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:textAllCaps="false"
+                    android:id="@+id/button"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/bg_blood_shape"
+                    android:text="Translate"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
+
     </LinearLayout>
 
-</LinearLayout>
+
+
+
+</RelativeLayout>

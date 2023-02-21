@@ -1,5 +1,8 @@
 package com.sarker.texta;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +24,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.text.Layout;
 import android.text.StaticLayout;
@@ -36,6 +41,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -54,6 +66,10 @@ public class EmojiArt extends AppCompatActivity {
     private static String result = "";
     private static String emoji ;
     private ImageView copy,share;
+
+    private InterstitialAd mInterstitialAd;
+    private Handler handler;
+    private Runnable runnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +138,34 @@ public class EmojiArt extends AppCompatActivity {
             }
         });
 
+
+        MobileAds.initialize(this, initializationStatus -> {
+        });
+
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+        handler = new Handler(Looper.getMainLooper());
+        runnable = () -> InterstitialAd.load(this,"ca-app-pub-1276360114688784/9853001105", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
+        handler.postDelayed(runnable, 15*1000L);
 
     }
     static void a()
@@ -814,5 +858,20 @@ public class EmojiArt extends AppCompatActivity {
             in++;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(this);
+            mInterstitialAd = null;
+            super.onBackPressed();
+            handler.removeCallbacks(runnable);
+        } else {
+            super.onBackPressed();
+            handler.removeCallbacks(runnable);
+        }
+    }
+
 
 }

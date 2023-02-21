@@ -1,5 +1,8 @@
 package com.sarker.texta;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,10 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import java.util.ArrayList;
 
@@ -25,6 +38,10 @@ public class FontStyle extends AppCompatActivity {
 
     private String[] font = {"Bubble","Currency","Magic","Knight","Antrophobia", "Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpius","Sagittarius","Capricorn","Aquarius","Pisces"};
 
+
+    private InterstitialAd mInterstitialAd;
+    private Handler handler;
+    private Runnable runnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +92,50 @@ public class FontStyle extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count){}
         });
 
+
+        MobileAds.initialize(this, initializationStatus -> {
+        });
+
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+        handler = new Handler(Looper.getMainLooper());
+        runnable = () -> InterstitialAd.load(this,"ca-app-pub-1276360114688784/9853001105", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
+        handler.postDelayed(runnable, 15*1000L);
+
     }
 
+
+    @Override
+    public void onBackPressed() {
+
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(this);
+            mInterstitialAd = null;
+            super.onBackPressed();
+            handler.removeCallbacks(runnable);
+        } else {
+            super.onBackPressed();
+            handler.removeCallbacks(runnable);
+        }
+    }
 
 }

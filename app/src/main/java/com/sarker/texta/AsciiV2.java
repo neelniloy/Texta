@@ -1,12 +1,27 @@
 package com.sarker.texta;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class AsciiV2 extends AppCompatActivity {
 
@@ -16,6 +31,10 @@ public class AsciiV2 extends AppCompatActivity {
     private ASCIIAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    private InterstitialAd mInterstitialAd;
+    private Handler handler;
+    private Runnable runnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +42,37 @@ public class AsciiV2 extends AppCompatActivity {
 
         createExampleList();
         buildRecyclerView();
+
+        MobileAds.initialize(this, initializationStatus -> {
+        });
+
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        handler = new Handler(Looper.getMainLooper());
+        runnable = () -> InterstitialAd.load(this,"ca-app-pub-1276360114688784/9853001105", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
+        handler.postDelayed(runnable, 15*1000L);
+
+
+
+
     }
 
     public void createExampleList() {
@@ -53,20 +103,20 @@ public class AsciiV2 extends AppCompatActivity {
         mExampleList.add(new Item("Shrug", "¯\\_(ツ)_/¯"));
         mExampleList.add(new Item("Cat", "ฅ^•ﻌ•^ฅ"));
         mExampleList.add(new Item("Confused", "(⊙_☉)"));
-        mExampleList.add(new Item("F##K", "....................../´¯/)\n" +
-                "....................,/¯../\n" +
-                ".................../..../\n" +
-                "............./´¯/'...'/´¯¯`·¸\n" +
-                "........../'/.../..../......./¨¯\\\n" +
-                "........('(...´...´.... ¯~/'...')\n" +
-                ".........\\.................'...../\n" +
-                "..........''...\\.......... _.·´\n" +
-                "............\\..............(\n" +
-                "..............\\.............\\..."));
+//        mExampleList.add(new Item("F###", "....................../´¯/)\n" +
+//                "....................,/¯../\n" +
+//                ".................../..../\n" +
+//                "............./´¯/'...'/´¯¯`·¸\n" +
+//                "........../'/.../..../......./¨¯\\\n" +
+//                "........('(...´...´.... ¯~/'...')\n" +
+//                ".........\\.................'...../\n" +
+//                "..........''...\\.......... _.·´\n" +
+//                "............\\..............(\n" +
+//                "..............\\.............\\..."));
         mExampleList.add(new Item("", "/\\_/\\\n" +
                 "(='_' )\n" +
                 "(, (\") (\")"));
-        mExampleList.add(new Item("Kissing", "(っ˘з(˘⌣˘ )"));
+        mExampleList.add(new Item("K!ssing", "(っ˘з(˘⌣˘ )"));
         mExampleList.add(new Item("Dancing", "(~‾▿‾)~"));
         mExampleList.add(new Item("Giving Up", "o(╥﹏╥)o"));
         mExampleList.add(new Item("Line 1", "⊂_ヽ\n" +
@@ -124,7 +174,7 @@ public class AsciiV2 extends AppCompatActivity {
         mExampleList.add(new Item("Afraid", "(ㆆ _ ㆆ)"));
         mExampleList.add(new Item("Angel", "☜(⌒▽⌒)☞"));
         mExampleList.add(new Item("Angry 4", "•`_´•"));
-        mExampleList.add(new Item("Ass", "(‿|‿)"));
+//        mExampleList.add(new Item("A#s", "(‿|‿)"));
         mExampleList.add(new Item("Blackeye", "0__#"));
         mExampleList.add(new Item("Blush", "(˵ ͡° ͜ʖ ͡°˵)"));
         mExampleList.add(new Item("Bond 007", "┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿"));
@@ -133,7 +183,7 @@ public class AsciiV2 extends AppCompatActivity {
         mExampleList.add(new Item("Cute", "(｡◕‿‿◕｡)"));
         mExampleList.add(new Item("Dab", "ヽ( •_)ᕗ"));
         mExampleList.add(new Item("Depressed", "(︶︹︶)"));
-        mExampleList.add(new Item("Fuck You", "┌П┐(ಠ_ಠ)"));
+//        mExampleList.add(new Item("F##", "┌П┐(ಠ_ಠ)"));
         mExampleList.add(new Item("Gun", "︻╦╤─"));
         mExampleList.add(new Item("Oh Shit", "( º﹃º )"));
         mExampleList.add(new Item("Rose", "✿ڿڰۣ—"));
@@ -141,11 +191,11 @@ public class AsciiV2 extends AppCompatActivity {
         mExampleList.add(new Item("Surrender", "\\_(-_-)_/"));
         mExampleList.add(new Item("Swag", "(̿▀̿‿ ̿▀̿ ̿)"));
         mExampleList.add(new Item("Thanks", "\\(^-^)/"));
-        mExampleList.add(new Item("WTF", "(⊙＿⊙')"));
+        mExampleList.add(new Item("WTFun", "(⊙＿⊙')"));
         mExampleList.add(new Item("No Worry", "_へ__(‾◡◝ )>"));
         mExampleList.add(new Item("", "(　◠ ◡ ◠　)"));
-        mExampleList.add(new Item("Fuck You 2", "( ︶︿︶)_╭∩╮"));
-        mExampleList.add(new Item("Fuck You 3", "╭∩╮(︶︿︶)╭∩╮"));
+//        mExampleList.add(new Item("F###", "( ︶︿︶)_╭∩╮"));
+//        mExampleList.add(new Item("F####", "╭∩╮(︶︿︶)╭∩╮"));
         mExampleList.add(new Item("", "(҂⌣̀_⌣́)"));
         mExampleList.add(new Item("Waving", "(¬_¬)ﾉ"));
         mExampleList.add(new Item("Sad", "(︶︹︺)"));
@@ -392,5 +442,19 @@ public class AsciiV2 extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(AsciiV2.this);
+            mInterstitialAd = null;
+            super.onBackPressed();
+            handler.removeCallbacks(runnable);
+        } else {
+            super.onBackPressed();
+            handler.removeCallbacks(runnable);
+        }
     }
 }
