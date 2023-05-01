@@ -184,8 +184,8 @@ public class AsciiV2 extends AppCompatActivity {
         mExampleList.add(new Item("Dab", "ヽ( •_)ᕗ"));
         mExampleList.add(new Item("Depressed", "(︶︹︶)"));
 //        mExampleList.add(new Item("F##", "┌П┐(ಠ_ಠ)"));
-        mExampleList.add(new Item("Gun", "︻╦╤─"));
-        mExampleList.add(new Item("Oh Shit", "( º﹃º )"));
+        mExampleList.add(new Item("Guun", "︻╦╤─"));
+        mExampleList.add(new Item("Oh Sh1t", "( º﹃º )"));
         mExampleList.add(new Item("Rose", "✿ڿڰۣ—"));
         mExampleList.add(new Item("Shy", "=^_^="));
         mExampleList.add(new Item("Surrender", "\\_(-_-)_/"));
@@ -421,9 +421,9 @@ public class AsciiV2 extends AppCompatActivity {
         mExampleList.add(new Item("", "\uD80C\uDCD3"));
         mExampleList.add(new Item("", "\uD80C\uDD9A"));
         mExampleList.add(new Item("", "\uD80C\uDD8F"));
-        mExampleList.add(new Item("Crazy Face", "ミ●﹏☉ミ"));
-        mExampleList.add(new Item("Kiss", "( ˘ ³˘)♥"));
-        mExampleList.add(new Item("Injured Life", "(҂◡_◡)"));
+        mExampleList.add(new Item("Cr4zy Face", "ミ●﹏☉ミ"));
+        mExampleList.add(new Item("K1ss", "( ˘ ³˘)♥"));
+        mExampleList.add(new Item("Injur3d Life", "(҂◡_◡)"));
         mExampleList.add(new Item("Tired Face", "( ͡ಠ ʖ̯ ͡ಠ)"));
         mExampleList.add(new Item("Looking Down", "(._.)"));
         mExampleList.add(new Item("Robot Face", "{•̃_•̃}"));
