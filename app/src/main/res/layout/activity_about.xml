@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#FFF"
-                android:text="Version 5.5.6"
+                android:text="Version 5.6.0"
                 android:textAlignment="center"
                 android:textSize="15sp"
                 android:gravity="center_horizontal" />
@@ -62,7 +62,7 @@
         <LinearLayout
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
-            android:layout_height="205dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_blood_shape"
             android:layout_gravity="center"
             android:orientation="vertical">
@@ -87,32 +87,14 @@
                 android:gravity="center_horizontal" />
             <TextView
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#FFF"
-                android:text="CSE"
+                android:text="Software Engineer - Android"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:gravity="center_horizontal" />
-            <TextView
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#FFF"
-                android:text="Batch 52"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:gravity="center_horizontal" />
-            <TextView
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#FFF"
-                android:text="Daffodil International University"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:gravity="center_horizontal" />
-
 
 
         </LinearLayout>
