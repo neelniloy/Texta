@@ -31,7 +31,7 @@
         android:textColor="#000000"
         android:fontFamily="@font/cinzel_decorative_black"
         android:gravity="center_horizontal"
-        android:text="TEXTA"
+        android:text="Text Repeater"
         android:textAlignment="center"
         android:textSize="70sp"
         android:transitionName="logo_text"

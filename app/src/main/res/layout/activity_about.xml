@@ -35,9 +35,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="#FFF"
                 android:fontFamily="@font/aclonica"
-                android:text="TEXTA"
+                android:text="Text Repeater"
                 android:textAlignment="center"
-                android:textSize="35sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal" />
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#FFF"
-                android:text="Version 4.6.1"
+                android:text="Version 5.5.6"
                 android:textAlignment="center"
                 android:textSize="15sp"
                 android:gravity="center_horizontal" />
