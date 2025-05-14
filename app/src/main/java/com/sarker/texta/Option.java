@@ -45,10 +45,6 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
     private CardView textRepeater,text2emoji,ascii,blank,random_sentence,emoji2text,emojiart,font,t2b,b2t;
     private CircleImageView about;
 
-    private InterstitialAd mInterstitialAd;
-    private Handler handler;
-    private Runnable runnable;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,26 +118,6 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        handler = new Handler(Looper.getMainLooper());
-        runnable = () -> InterstitialAd.load(this,"ca-app-pub-1276360114688784/9853001105", adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-                        Log.i(TAG, "onAdLoaded");
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        Log.d(TAG, loadAdError.toString());
-                        mInterstitialAd = null;
-                    }
-                });
-        handler.postDelayed(runnable, 15*1000L);
-
 
     }
     @Override
@@ -177,18 +153,6 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
 
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             backtoast.cancel();
-            if (mInterstitialAd != null) {
-                mInterstitialAd.show(this);
-                mInterstitialAd = null;
-                super.onBackPressed();
-                handler.removeCallbacks(runnable);
-                finish();
-            } else {
-                super.onBackPressed();
-                handler.removeCallbacks(runnable);
-                finish();
-            }
-
             return;
         } else {
             backtoast = Toast.makeText(Option.this, "Press Again To Exit", Toast.LENGTH_SHORT);

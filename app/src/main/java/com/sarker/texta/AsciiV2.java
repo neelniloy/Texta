@@ -70,9 +70,6 @@ public class AsciiV2 extends AppCompatActivity {
                 });
         handler.postDelayed(runnable, 15*1000L);
 
-
-
-
     }
 
     public void createExampleList() {
@@ -445,16 +442,12 @@ public class AsciiV2 extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-
+    public void onDestroy() {
         if (mInterstitialAd != null) {
             mInterstitialAd.show(AsciiV2.this);
             mInterstitialAd = null;
-            super.onBackPressed();
-            handler.removeCallbacks(runnable);
-        } else {
-            super.onBackPressed();
-            handler.removeCallbacks(runnable);
         }
+        handler.removeCallbacks(runnable);
+        super.onDestroy();
     }
 }

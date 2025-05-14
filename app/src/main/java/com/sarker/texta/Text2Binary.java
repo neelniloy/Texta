@@ -121,18 +121,13 @@ public class Text2Binary extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-
+    public void onDestroy() {
         if (mInterstitialAd != null) {
             mInterstitialAd.show(this);
             mInterstitialAd = null;
-            super.onBackPressed();
-            handler.removeCallbacks(runnable);
-        } else {
-            super.onBackPressed();
-            handler.removeCallbacks(runnable);
         }
+        handler.removeCallbacks(runnable);
+        super.onDestroy();
     }
-
 
 }
