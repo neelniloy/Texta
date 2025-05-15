@@ -122,30 +122,28 @@ public class Option extends AppCompatActivity implements View.OnClickListener {
     }
     @Override
     public void onClick(View v) {
+        Intent i = null;
 
-        Intent i;
-
-        switch (v.getId()){
-
-            case R.id.cv_text_repeater : i = new Intent(this,Dashboard.class);startActivity(i) ;
-                break;
-            case R.id.cv_blank : i = new Intent(this,Blank.class);startActivity(i) ;
-                break;
-            case R.id.cv_text2emoji : i = new Intent(this,TextTranslator.class);startActivity(i);
-                break;
-            case R.id.cv_emoji2text : i = new Intent(this,Emoji.class);startActivity(i);
-                break;
-            case R.id.cv_ascii : i = new Intent(this,AsciiV2.class);startActivity(i);
-                break;
-            case R.id.cv_emojiart : i = new Intent(this,EmojiArt.class);startActivity(i);
-                break;
-            case R.id.cv_random_sentence : i = new Intent(this,RandomSentence.class);startActivity(i);
-                break;
-            default:
-                break;
+        int id = v.getId();
+        if (id == R.id.cv_text_repeater) {
+            i = new Intent(this, Dashboard.class);
+        } else if (id == R.id.cv_blank) {
+            i = new Intent(this, Blank.class);
+        } else if (id == R.id.cv_text2emoji) {
+            i = new Intent(this, TextTranslator.class);
+        } else if (id == R.id.cv_emoji2text) {
+            i = new Intent(this, Emoji.class);
+        } else if (id == R.id.cv_ascii) {
+            i = new Intent(this, AsciiV2.class);
+        } else if (id == R.id.cv_emojiart) {
+            i = new Intent(this, EmojiArt.class);
+        } else if (id == R.id.cv_random_sentence) {
+            i = new Intent(this, RandomSentence.class);
         }
 
-
+        if (i != null) {
+            startActivity(i);
+        }
     }
 
 
